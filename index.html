@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ConsultLight — юридические вопросы, понятные решения</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F9FB;--card:#fff;--pri:#172B4D;--gr:#343B46;--mut:#747D8C;--ln:#E5E8ED;--ac:#426B9B;--acs:#EAF0F7;--ok:#2F7D5B;--oks:#E7F3ED;--wn:#9A6B12;--wns:#FBF3E1;--er:#B3392F;--f:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1623;--card:#161F2F;--pri:#DCE6F5;--gr:#C9D2E0;--mut:#93A0B4;--ln:#26324A;--ac:#7FA4D4;--acs:#1B2740;--oks:#16302A;--wns:#33290F}}
+:root[data-theme="dark"]{--bg:#0F1623;--card:#161F2F;--pri:#DCE6F5;--gr:#C9D2E0;--mut:#93A0B4;--ln:#26324A;--ac:#7FA4D4;--acs:#1B2740;--oks:#16302A;--wns:#33290F}
+*{box-sizing:border-box}html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background:var(--bg);color:var(--gr);font:16px/1.6 var(--f)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:30}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+h1,h2,h3{color:var(--pri);margin:0;line-height:1.2;letter-spacing:-.01em}
+h1{font-size:clamp(28px,5vw,44px);font-weight:700}h2{font-size:clamp(22px,3.4vw,28px);font-weight:600}h3{font-size:17px;font-weight:600}
+p{margin:0}.mut{color:var(--mut);font-size:14px}.sm{font-size:14px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--ln)}
+.bar{display:flex;align-items:center;gap:16px;height:60px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--pri);font-size:18px;text-decoration:none;cursor:pointer;margin-right:auto}
+.logo svg{width:24px;height:24px;color:var(--ac)}
+nav{display:flex;gap:4px}
+nav a{padding:8px 12px;border-radius:6px;color:var(--gr);text-decoration:none;font-weight:500;font-size:15px}
+nav a:hover{background:var(--acs)}nav a.on{color:var(--pri);background:var(--acs);box-shadow:inset 0 -2px 0 var(--ac)}
+.burger{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;border-radius:6px;border:1px solid var(--pri);background:var(--pri);color:var(--bg);font:600 15px var(--f);cursor:pointer;text-decoration:none;transition:background .15s,border-color .15s}
+.btn:hover{background:var(--ac);border-color:var(--ac)}.btn:active{transform:translateY(1px)}
+.btn.s{background:transparent;color:var(--pri);border-color:var(--ln)}.btn.s:hover{border-color:var(--ac);color:var(--ac)}
+.btn.sm{height:36px;padding:0 14px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;background:var(--ln);border-color:var(--ln);color:var(--mut)}
+.btn.load::after{content:"";width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.hide{display:none!important}
+main{padding:40px 0 56px}
+.pg{animation:fd .25s ease}@keyframes fd{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.pg,.btn.load::after{animation:none}}
+.eyebrow{color:var(--ac);font-weight:600;font-size:14px;margin-bottom:12px}
+.hero{display:grid;gap:32px;align-items:center}
+.hero p.lead{font-size:18px;color:var(--mut);margin:16px 0 24px;max-width:34em}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.panel{background:var(--card);border:1px solid var(--ln);border-radius:8px;box-shadow:0 1px 2px rgba(23,43,77,.06)}
+.pv{padding:20px}.pv .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.tag{display:inline-block;border-radius:4px;background:var(--acs);color:var(--ac);font-size:12.5px;font-weight:600;padding:2px 8px}
+.kv{display:grid;grid-template-columns:1fr auto;gap:8px 16px;font-size:14px;border-top:1px solid var(--ln);padding-top:12px;margin-top:12px}.kv dd{margin:0;font-weight:600;color:var(--pri);text-align:right}.kv dt{color:var(--mut)}
+.val{font-size:36px;font-weight:700;color:var(--pri);font-variant-numeric:tabular-nums;line-height:1.1}
+.sec{margin-top:64px}.sec>h2{margin-bottom:8px}.sec>p.mut{margin-bottom:24px;font-size:16px}
+.dir{display:grid;gap:20px;padding:24px;margin-bottom:16px;align-items:center}
+.dir .tx{display:grid;gap:8px;justify-items:start}.dir .tx svg{color:var(--ac);width:24px;height:24px}
+.ill{border:1px solid var(--ln);border-radius:6px;background:var(--bg);padding:14px;font-size:14px}
+.ill code{font:500 14px var(--f);color:var(--pri);display:block;font-variant-numeric:tabular-nums}
+.sheet-m{background:#fff;color:#343B46;border:1px solid var(--ln);padding:12px;font-size:12.5px;line-height:1.5}
+.steps{display:grid;gap:0;border:1px solid var(--ln);border-radius:8px;background:var(--card)}
+.steps>div{padding:20px;border-bottom:1px solid var(--ln);display:grid;gap:4px}.steps>div:last-child{border:0}
+.steps b{color:var(--ac);font-size:14px}
+.two{display:grid;gap:16px}.note{display:flex;gap:12px;padding:16px;border-radius:8px;font-size:14px;align-items:flex-start}
+.note.ok{background:var(--oks);color:var(--ok)}.note.wn{background:var(--wns);color:var(--wn)}.note p{color:var(--gr)}
+ul.ck{list-style:none;margin:0;padding:0;display:grid;gap:12px}ul.ck li{display:flex;gap:10px}ul.ck svg{color:var(--ok);margin-top:3px}
+footer{border-top:1px solid var(--ln);padding:28px 0;color:var(--mut);font-size:14px;background:var(--card)}
+footer .wrap{display:grid;gap:12px}footer nav a{font-size:14px;padding:4px 10px 4px 0}
+.ph1{margin-bottom:24px}.ph1 p{color:var(--mut);margin-top:8px;max-width:40em}
+.seg{display:inline-flex;border:1px solid var(--ln);border-radius:8px;background:var(--card);padding:3px;margin-bottom:20px;max-width:100%;overflow-x:auto}
+.seg button{border:0;background:transparent;color:var(--gr);font:500 14.5px var(--f);padding:8px 16px;border-radius:6px;cursor:pointer;white-space:nowrap}
+.seg button.on{background:var(--pri);color:var(--bg)}
+.form{padding:20px;display:grid;gap:16px;align-content:start}
+.fl label{display:block;font-weight:500;font-size:14px;color:var(--pri);margin-bottom:6px}
+.fl .h{font-size:13px;color:var(--mut);margin-top:4px}.fl .e{font-size:13px;color:var(--er);margin-top:4px;display:none}
+.fl.bad .e{display:block}.fl.bad input,.fl.bad select,.fl.bad textarea{border-color:var(--er)}
+input,select,textarea{width:100%;height:44px;border:1px solid #CBD2DC;border-radius:6px;padding:0 12px;font:16px var(--f);background:var(--card);color:var(--gr)}
+textarea{height:96px;padding:10px 12px;resize:vertical}input:hover,select:hover,textarea:hover{border-color:var(--ac)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ac);outline-offset:0;border-color:var(--ac)}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px}.chk input{width:18px;height:18px;margin-top:3px}
+.rep{margin-top:20px;animation:fd .25s ease}.rep .top{padding:20px;border-bottom:1px solid var(--ln)}
+.rep .bd{padding:20px;display:grid;gap:20px}.rep h4{margin:0 0 6px;font-size:13px;color:var(--mut);font-weight:600}
+.fm{background:var(--bg);border:1px solid var(--ln);border-radius:6px;padding:12px;font-size:14px;color:var(--pri);font-variant-numeric:tabular-nums;overflow-x:auto}
+.rep .ft{padding:16px 20px;border-top:1px solid var(--ln);display:flex;gap:12px;flex-wrap:wrap}
+.dgrid{display:grid;gap:20px;align-items:start}
+.dsc{font-size:14px;color:var(--mut);margin-top:4px}
+.prog{height:6px;background:var(--ln);border-radius:3px;overflow:hidden}.prog i{display:block;height:100%;background:var(--ac);width:0;transition:width .2s}
+.sheet{background:#fff;color:#1d2330;border:1px solid var(--ln);box-shadow:0 8px 24px -14px rgba(23,43,77,.35);padding:28px 24px;font:15px/1.65 "Times New Roman",Georgia,serif;white-space:pre-wrap;min-height:360px;overflow-wrap:anywhere}
+.sheet .ph{background:#EEF1F5;color:#747D8C;border-radius:3px;padding:0 4px}
+.sheetwrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px)}
+.srch{position:relative}.srch svg{position:absolute;left:12px;top:13px;color:var(--mut)}.srch input{padding-left:38px}
+.flt{display:grid;gap:12px;margin-bottom:20px}
+.org{display:grid;gap:8px;padding:16px 20px;border-bottom:1px solid var(--ln)}.org:last-child{border:0}
+.org .meta{display:flex;gap:6px 20px;flex-wrap:wrap;font-size:14px}.org .meta span,.org .meta a{display:inline-flex;gap:6px;align-items:center}
+.org .tel{font-weight:600;color:var(--pri);font-size:16px;text-decoration:none}.org a{color:var(--ac)}
+.org .t{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+@media (min-width:860px){
+ .hero{grid-template-columns:1.1fr .9fr}.dir{grid-template-columns:1fr 1fr}.dir:nth-child(even) .ill{order:-1}
+ .steps{grid-template-columns:repeat(3,1fr)}.steps>div{border-bottom:0;border-right:1px solid var(--ln)}
+ .two{grid-template-columns:1fr 1fr}.dgrid{grid-template-columns:1fr 1fr}.flt{grid-template-columns:2fr 1fr 1fr}
+ footer .wrap{grid-template-columns:1fr auto;align-items:center}
+}
+@media (max-width:719px){
+ .burger{display:inline-flex}.bar>.btn.st{height:36px;padding:0 12px}
+ nav{display:none;position:absolute;left:0;right:0;top:60px;background:var(--card);border-bottom:1px solid var(--ln);flex-direction:column;padding:8px 20px 12px}
+ nav.open{display:flex}nav a{padding:12px 8px}
+ .rep .ft .btn{flex:1}main{padding-top:28px}.sec{margin-top:48px}.val{font-size:30px}.sheetwrap{position:static}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="#home"><svg class="i" data-i="shield"></svg>ConsultLight</a>
+<nav id="nav"><a href="#home" data-p="home">Главная</a><a href="#calc" data-p="calc">Калькулятор</a><a href="#docs" data-p="docs">Документы</a><a href="#help" data-p="help">Помощь рядом</a></nav>
+<a class="btn st sm" href="#calc">Начать</a>
+<button class="btn s sm burger" id="bg" aria-label="Меню" aria-expanded="false"><svg class="i" data-i="menu"></svg></button>
+</div></header>
+
+<main><div class="wrap">
+
+<section id="p-home" class="pg">
+<div class="hero">
+<div>
+<p class="eyebrow">Цифровой юридический помощник</p>
+<h1>Юридические вопросы. Понятные решения.</h1>
+<p class="lead">Рассчитайте пошлину или неустойку, подготовьте претензию или заявление и узнайте, куда обратиться. Без регистрации и без отправки данных на сервер.</p>
+<div class="acts"><a class="btn" href="#calc">Начать</a><a class="btn s" href="#dirs" id="seeMore">Посмотреть возможности</a></div>
+</div>
+<div class="panel pv" aria-label="Пример расчёта">
+<div class="hd"><h3>Госпошлина</h3><span class="tag">Пример</span></div>
+<p class="mut">Иск на 250 000 ₽, суд общей юрисдикции</p>
+<p class="val" style="margin-top:12px">8 500,00 ₽</p>
+<dl class="kv"><dt>Базовая часть</dt><dd>4 000 ₽</dd><dt>3% с суммы свыше 100 000 ₽</dt><dd>4 500 ₽</dd><dt>Основание</dt><dd>ст. 333.19 НК РФ</dd></dl>
+</div>
+</div>
+
+<div class="sec" id="dirs">
+<h2>Три инструмента в одном месте</h2><p class="mut">От расчёта суммы до готового документа и адреса организации.</p>
+<div class="panel dir"><div class="tx"><svg class="i" data-i="calc"></svg><h3>Калькулятор</h3><p>Госпошлина, неустойка и срок давности. К каждому результату прилагается формула.</p><a class="btn s sm" href="#calc">Открыть калькулятор</a></div>
+<div class="ill"><code>4 000 + 3% × (250 000 − 100 000)</code><code style="color:var(--mut);margin:4px 0">= 8 500 ₽</code></div></div>
+<div class="panel dir"><div class="tx"><svg class="i" data-i="file"></svg><h3>Документы</h3><p>Претензия, заявление о возврате, жалоба в надзорный орган. Лист обновляется, пока вы вводите данные.</p><a class="btn s sm" href="#docs">Составить документ</a></div>
+<div class="sheet-m"><b>ПРЕТЕНЗИЯ</b><br>о возврате денежных средств<br><span style="color:#747D8C">Я приобрёл(а) в вашей организации…</span></div></div>
+<div class="panel dir"><div class="tx"><svg class="i" data-i="pin"></svg><h3>Помощь рядом</h3><p>Каталог госорганов и горячих линий с поиском и фильтрами по теме и городу.</p><a class="btn s sm" href="#help">Найти организацию</a></div>
+<div class="ill"><b style="color:var(--pri)">Роспотребнадзор</b><br><span class="mut">Права потребителя</span><br><b style="color:var(--pri)">8 800 100-29-26</b></div></div>
+</div>
+
+<div class="sec"><h2>Как это работает</h2><p class="mut" style="margin-bottom:16px">Три последовательных шага.</p>
+<div class="steps"><div><b>Шаг 1</b><h3>Посчитайте</h3><p class="sm">Введите сумму и даты, получите расчёт с формулой.</p></div><div><b>Шаг 2</b><h3>Подготовьте документ</h3><p class="sm">Заполните форму и проверьте текст на листе.</p></div><div><b>Шаг 3</b><h3>Обратитесь</h3><p class="sm">Выберите организацию по теме и отправьте документ.</p></div></div></div>
+
+<div class="sec"><h2>Почему сервису можно доверять</h2><br>
+<ul class="ck"><li><svg class="i" data-i="check"></svg><span>Расчёты опираются на статьи закона, ссылка на статью указана в результате.</span></li><li><svg class="i" data-i="check"></svg><span>Формула показана полностью, расчёт можно проверить вручную.</span></li><li><svg class="i" data-i="check"></svg><span>Документы составляются по типовым шаблонам и редактируются перед скачиванием.</span></li></ul></div>
+
+<div class="sec two">
+<div class="note ok"><svg class="i" data-i="lock"></svg><div><h3>Конфиденциальность</h3><p style="margin-top:4px">Введённые данные обрабатываются в вашем браузере, не отправляются на сервер и не сохраняются.</p></div></div>
+<div class="note wn"><svg class="i" data-i="warn"></svg><div><h3>Важно</h3><p style="margin-top:4px">Сервис даёт справочную информацию и не заменяет консультацию юриста.</p></div></div>
+</div>
+</section>
+
+<section id="p-calc" class="pg hide">
+<div class="ph1"><h1>Калькулятор</h1><p>Выберите вид расчёта, заполните поля и получите результат с формулой и пояснением.</p></div>
+<div class="seg" role="tablist"><button data-c="fee" class="on">Госпошлина</button><button data-c="pen">Неустойка</button><button data-c="lim">Срок давности</button></div>
+<div class="panel form">
+<div id="c-fee" class="form-in" style="display:grid;gap:16px">
+<div class="fl"><label for="fprice">Цена иска, ₽</label><input id="fprice" type="number" inputmode="decimal" min="0" placeholder="250000"><p class="h">Например: 250000. Только сумма, без пробелов.</p><p class="e"></p></div>
+<div class="fl"><label for="fcourt">Вид обращения</label><select id="fcourt"><option value="1">Исковое заявление (районный суд, мировой судья)</option><option value="0.5">Судебный приказ</option></select></div>
+<label class="chk"><input type="checkbox" id="fcons"><span>Иск о защите прав потребителя. До 1 млн ₽ пошлина не платится, свыше — вычитается 25 000 ₽.</span></label>
+</div>
+<div id="c-pen" class="hide" style="gap:16px"><div style="display:grid;gap:16px">
+<div class="fl"><label for="psum">Сумма долга, ₽</label><input id="psum" type="number" inputmode="decimal" min="0" placeholder="30000"><p class="h">Например: 30000.</p><p class="e"></p></div>
+<div class="fl"><label for="pstart">Дата начала просрочки</label><input id="pstart" type="date"><p class="e"></p></div>
+<div class="fl"><label for="pend">Дата окончания</label><input id="pend" type="date"><p class="h">Если оставить пустым, возьмём сегодняшнюю дату.</p><p class="e"></p></div>
+<div class="fl"><label for="prate">Ставка, %</label><input id="prate" type="number" step="0.01" value="1" min="0"><p class="h">1% в день — для товара по закону о защите прав потребителей.</p><p class="e"></p></div>
+<div class="fl"><label for="pmode">Как задана ставка</label><select id="pmode"><option value="d">Процентов в день</option><option value="y">Процентов годовых (ст. 395 ГК, ключевая ставка)</option></select></div></div></div>
+<div id="c-lim" class="hide"><div style="display:grid;gap:16px">
+<div class="fl"><label for="ldate">Дата нарушения права</label><input id="ldate" type="date"><p class="h">День, когда вы узнали о нарушении.</p><p class="e"></p></div>
+<div class="fl"><label for="ltype">Тип требования</label><select id="ltype"><option value="y3">Гражданский спор — 3 года (ст. 196 ГК)</option><option value="y1">Невыплаченная зарплата — 1 год (ст. 392 ТК)</option><option value="m3">Другой трудовой спор — 3 месяца (ст. 392 ТК)</option><option value="m1">Увольнение — 1 месяц (ст. 392 ТК)</option></select></div></div></div>
+<div><button class="btn" id="calcGo">Рассчитать</button></div>
+</div>
+<div id="rep"></div>
+</section>
+
+<section id="p-docs" class="pg hide">
+<div class="ph1"><h1>Документы</h1><p>Заполните форму слева, текст на листе справа обновляется сразу. Любое поле можно исправить.</p></div>
+<div class="dgrid">
+<div class="panel form">
+<div class="fl"><label for="dtype">Тип документа</label><select id="dtype"><option value="pre">Претензия о возврате денег за товар с недостатками</option><option value="zay">Заявление о возврате товара или услуги</option><option value="rpn">Заявление в Роспотребнадзор или трудовую инспекцию</option></select><p class="dsc" id="dsc"></p></div>
+<div><div class="mut" style="display:flex;justify-content:space-between;margin-bottom:6px"><span>Заполнено</span><span id="pt">0 из 7</span></div><div class="prog"><i id="pb"></i></div></div>
+<div class="fl"><label for="f_to" id="l_to">Кому</label><input id="f_to" placeholder="ООО «Название магазина»"></div>
+<div class="fl"><label for="f_fio">Ваши ФИО</label><input id="f_fio" placeholder="Иванов Иван Иванович"></div>
+<div class="fl"><label for="f_adr">Адрес и телефон</label><input id="f_adr" placeholder="г. Москва, ул. Примерная, 1; +7 900 000-00-00"></div>
+<div class="fl"><label for="f_what" id="l_what">Что куплено</label><input id="f_what" placeholder="Смартфон модели X"></div>
+<div class="fl"><label for="f_date">Дата покупки или события</label><input id="f_date" type="date"></div>
+<div class="fl"><label for="f_sum">Сумма, ₽</label><input id="f_sum" type="number" inputmode="decimal" min="0" placeholder="25000"></div>
+<div class="fl"><label for="f_text">Что случилось</label><textarea id="f_text" placeholder="Коротко опишите ситуацию своими словами"></textarea></div>
+</div>
+<div class="sheetwrap">
+<div class="note ok hide" id="okb" style="margin-bottom:12px"><svg class="i" data-i="check"></svg><p>Документ готов. Проверьте текст и скачайте или скопируйте его.</p></div>
+<div class="sheet" id="sheet"></div>
+<div class="acts" style="margin-top:12px"><button class="btn" id="dl" disabled><svg class="i" data-i="down"></svg>Скачать документ</button><button class="btn s" id="cp" disabled><svg class="i" data-i="copy"></svg>Скопировать текст</button><a class="btn s" href="#help">Куда обратиться</a></div>
+<p class="mut" id="dmsg" style="margin-top:8px" role="status"></p>
+</div>
+</div>
+</section>
+
+<section id="p-help" class="pg hide">
+<div class="ph1"><h1>Помощь рядом</h1><p>Найдите организацию по названию, теме проблемы или городу.</p></div>
+<div class="flt">
+<div class="srch"><svg class="i" data-i="search"></svg><input id="hq" type="search" placeholder="Поиск по названию или описанию" aria-label="Поиск"></div>
+<select id="hcity" aria-label="Город"></select><select id="htopic" aria-label="Тематика"></select>
+</div>
+<div class="panel" id="hlist"></div>
+<p class="mut" style="margin-top:12px">Показаны организации, работающие по всей России.</p>
+</section>
+
+</div></main>
+<footer><div class="wrap"><div><b style="color:var(--pri)">ConsultLight</b><p>Сервис даёт справочную информацию и не заменяет консультацию юриста.</p></div>
+<nav><a href="#calc">Калькулятор</a><a href="#docs">Документы</a><a href="#help">Помощь рядом</a></nav></div></footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const IC={shield:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',calc:'<rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8M16 14v4M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/>',file:'<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 13H8M16 17H8M16 13h-2"/>',pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',phone:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>',lock:'<rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',check:'<path d="M20 6 9 17l-5-5"/>',menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',copy:'<rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',down:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',ext:'<path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',warn:'<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/>'};
+function hy(){document.querySelectorAll("svg[data-i]").forEach(s=>{s.setAttribute("viewBox","0 0 24 24");s.classList.add("i");s.innerHTML=IC[s.dataset.i]||"";s.removeAttribute("data-i")})}
+const ico=n=>`<svg class="i" viewBox="0 0 24 24">${IC[n]}</svg>`;
+const fmt=n=>n.toLocaleString("ru-RU",{minimumFractionDigits:2,maximumFractionDigits:2})+" ₽";
+const num=n=>n.toLocaleString("ru-RU",{maximumFractionDigits:2});
+const dstr=d=>d.toLocaleDateString("ru-RU");
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+// ---- роутер ----
+let helpTopic=null;
+function route(){
+ let p=(location.hash||"#home").slice(1);
+ if(!["home","calc","docs","help"].includes(p)){p="home"}
+ ["home","calc","docs","help"].forEach(k=>$("p-"+k).classList.toggle("hide",k!==p));
+ document.querySelectorAll("nav a[data-p]").forEach(a=>a.classList.toggle("on",a.dataset.p===p));
+ $("nav").classList.remove("open");$("bg").setAttribute("aria-expanded","false");
+ if(p==="help")renderHelp();
+ window.scrollTo(0,0);
+}
+addEventListener("hashchange",route);
+$("bg").onclick=()=>{const o=$("nav").classList.toggle("open");$("bg").setAttribute("aria-expanded",o)};
+$("seeMore").onclick=e=>{e.preventDefault();$("dirs").scrollIntoView({behavior:"smooth"})};
+
+// ---- калькулятор ----
+let ctab="fee";
+document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{
+ ctab=b.dataset.c;document.querySelectorAll(".seg button").forEach(x=>x.classList.toggle("on",x===b));
+ ["fee","pen","lim"].forEach(k=>$("c-"+k).classList.toggle("hide",k!==ctab));$("rep").innerHTML="";
+});
+const SCALE=[[100000,4000,0,0],[300000,4000,.03,100000],[500000,10000,.025,300000],[1000000,15000,.02,500000],[3000000,25000,.01,1000000],[8000000,45000,.007,3000000],[24000000,80000,.0035,8000000],[50000000,136000,.003,24000000],[100000000,214000,.002,50000000]];
+function feeOf(p){for(const [l,b,r,f] of SCALE)if(p<=l)return{v:b+(r?(p-f)*r:0),b,r,f};return{v:Math.min(314000+(p-100000000)*.0015,900000),b:314000,r:.0015,f:100000000}}
+function bad(id,msg){const f=$(id).closest(".fl");f.classList.toggle("bad",!!msg);if(msg)f.querySelector(".e").textContent=msg;return !!msg}
+function report(o){
+ $("rep").innerHTML=`<div class="panel rep"><div class="top"><span class="tag">Расчёт</span><h3 style="margin:8px 0 4px">${o.title}</h3><p class="val">${o.value}</p></div>
+ <div class="bd"><div><h4>Исходные данные</h4><dl class="kv" style="border:0;padding:0;margin:0">${o.rows.map(r=>`<dt>${r[0]}</dt><dd>${r[1]}</dd>`).join("")}</dl></div>
+ <div><h4>Пояснение</h4><p class="sm">${o.expl}</p></div><div><h4>Использованная формула</h4><div class="fm">${o.formula}</div></div></div>
+ <div class="ft"><a class="btn" href="#docs">${ico("file")}Составить документ</a><a class="btn s" href="#help" id="goHelp">${ico("pin")}Куда обратиться</a></div></div>`;
+ $("goHelp").onclick=()=>{helpTopic=o.topic};
+ $("rep").scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("calcGo").onclick=()=>{
+ if(ctab==="fee"){
+  const p=+$("fprice").value;if(bad("fprice",!(p>0)?"Введите цену иска больше нуля.":""))return;
+  const x=feeOf(p);let v=x.v,ex="";
+  if($("fcons").checked){v=p<=1e6?0:Math.max(v-25000,0);ex=" Применена льгота для потребителей."}
+  const half=$("fcourt").value==="0.5";if(half)v*=.5;
+  report({title:"Государственная пошлина",value:fmt(v),topic:"Права потребителя",rows:[["Цена иска",fmt(p)],["Вид обращения",half?"Судебный приказ":"Исковое заявление"],["Льгота потребителя",$("fcons").checked?"Да":"Нет"]],
+  expl:`Размер пошлины определён по шкале ст. 333.19 НК РФ для физических лиц.${ex}${half?" Для судебного приказа берётся 50% от пошлины по иску.":""}`,
+  formula:x.r?`${num(x.b)} ₽ + ${(x.r*100).toString().replace(".",",")}% × (${num(p)} − ${num(x.f)}) = ${fmt(x.v)}`:`Цена иска до 100 000 ₽: фиксированно ${fmt(x.v)}`});
+ }
+ if(ctab==="pen"){
+  const s=+$("psum").value,r=+$("prate").value,st=$("pstart").value;let e1=bad("psum",!(s>0)?"Введите сумму больше нуля.":""),e2=bad("pstart",!st?"Укажите дату начала.":""),e3=bad("prate",!(r>0)?"Ставка должна быть больше нуля.":"");
+  const a=new Date(st),b=$("pend").value?new Date($("pend").value):new Date(),days=Math.floor((b-a)/864e5);
+  const e4=!e2&&bad("pend",days<=0?"Дата окончания должна быть позже даты начала.":"");if(e1||e2||e3||e4)return;
+  const y=$("pmode").value==="y",v=y?s*r/100/365*days:s*r/100*days;
+  report({title:"Неустойка",value:fmt(v),topic:"Права потребителя",rows:[["Сумма",fmt(s)],["Период",`${dstr(a)} — ${dstr(b)}`],["Дней просрочки",days],["Ставка",r+(y?"% годовых":"% в день")]],
+  expl:y?"Проценты за пользование чужими деньгами по ст. 395 ГК РФ: ставку годовых введите по ключевой ставке за период.":"Для товара закон о защите прав потребителей (ст. 23) предусматривает 1% в день. Для других случаев проверьте ставку.",
+  formula:y?`${num(s)} × ${r}% ÷ 365 × ${days} = ${fmt(v)}`:`${num(s)} × ${r}% × ${days} = ${fmt(v)}`});
+ }
+ if(ctab==="lim"){
+  if(bad("ldate",!$("ldate").value?"Укажите дату нарушения.":""))return;
+  const d0=new Date($("ldate").value),d=new Date(d0),t=$("ltype").value,lab=$("ltype").selectedOptions[0].textContent;
+  if(t==="y3")d.setFullYear(d.getFullYear()+3);if(t==="y1")d.setFullYear(d.getFullYear()+1);if(t==="m3")d.setMonth(d.getMonth()+3);if(t==="m1")d.setMonth(d.getMonth()+1);
+  const left=Math.ceil((d-new Date())/864e5);
+  report({title:"Срок давности",value:dstr(d),topic:t==="y3"?"Права потребителя":"Трудовые споры",rows:[["Дата нарушения",dstr(d0)],["Тип требования",lab.split(" — ")[0]],["Срок",lab.split(" — ")[1].split(" (")[0]],["Осталось",left>=0?left+" дн.":"срок прошёл"]],
+  expl:left>=0?"Обратиться в суд можно до этой даты включительно.":"Срок, скорее всего, пропущен. Суд может восстановить его только при уважительных причинах.",
+  formula:`${dstr(d0)} + срок = ${dstr(d)}`});
+ }
+};
+
+// ---- документы ----
+const DT={pre:["Претензия продавцу о возврате денег за товар с недостатками (ст. 18). Срок на ответ — 10 дней (ст. 22), за просрочку — неустойка 1% в день (ст. 23).","Название магазина или организации","Что куплено"],zay:["Заявление о возврате товара или услуги в магазин или организацию.","Название магазина или организации","Что куплено"],rpn:["Жалоба в надзорный орган о нарушении прав потребителя или работника.","Территориальное управление Роспотребнадзора или инспекция труда","Кто нарушил права"]};
+const FIELDS=["f_to","f_fio","f_adr","f_what","f_date","f_sum","f_text"];
+const P=(v,n)=>v?esc(v):`⟦${n}⟧`;
+function build(){
+ const t=$("dtype").value,g=i=>$(i).value.trim(),d=g("f_date")?dstr(new Date(g("f_date"))):"",s=g("f_sum")?fmt(+g("f_sum")):"",today=dstr(new Date());
+ const head=`${P(g("f_to"),"кому")}\nот ${P(g("f_fio"),"ФИО")}\nАдрес и телефон: ${P(g("f_adr"),"адрес, телефон")}\n\n`;
+ const tx=P(g("f_text"),"опишите ситуацию"),sg=`\n\nДата: ${today}\nПодпись: ____________ / ${P(g("f_fio"),"ФИО")}`,w=P(g("f_what"),"что куплено"),dd=P(d,"дата"),ss=P(s,"сумма");
+ let b="";
+ if(t==="pre")b=`ПРЕТЕНЗИЯ\nо возврате денежных средств\n\n${dd} я приобрёл(а): ${w}. Стоимость — ${ss}.\n\n${tx}\n\nНа основании статьи 18 Закона РФ «О защите прав потребителей» отказываюсь от исполнения договора купли-продажи и требую вернуть уплаченную за товар сумму в размере ${ss}.\n\nНапоминаю, что согласно статье 22 Закона РФ «О защите прав потребителей» данное требование подлежит удовлетворению в течение 10 дней со дня его предъявления.\n\nВ случае нарушения этого срока на основании статьи 23 Закона РФ «О защите прав потребителей» буду требовать неустойку в размере 1% от цены товара за каждый день просрочки, а также обращусь в суд и в Роспотребнадзор.`+sg;
+ if(t==="zay")b=`ЗАЯВЛЕНИЕ\nо возврате товара (услуги)\n\n${dd} я приобрёл(а): ${w} на сумму ${ss}.\n\n${tx}\n\nПрошу принять ${w} обратно и вернуть уплаченные деньги в размере ${ss}.`+sg;
+ if(t==="rpn")b=`ЗАЯВЛЕНИЕ\n(жалоба на нарушение прав)\n\nСообщаю, что «${w}» нарушил(а) мои права. Дата события: ${dd}. Сумма: ${ss}.\n\n${tx}\n\nПрошу провести проверку и принять меры в рамках ваших полномочий. Ответ прошу направить по указанному адресу.\n\nПриложения: копии документов, подтверждающих изложенное.`+sg;
+ return head+b;
+}
+function upd(){
+ const t=$("dtype").value;$("dsc").textContent=DT[t][0];$("f_to").placeholder=DT[t][1];$("l_what").textContent=DT[t][2];
+ const n=FIELDS.filter(i=>$(i).value.trim()).length;$("pt").textContent=n+" из 7";$("pb").style.width=n/7*100+"%";
+ $("sheet").innerHTML=build().replace(/⟦(.*?)⟧/g,'<span class="ph">$1</span>');
+ const ok=n===7;$("dl").disabled=!ok;$("cp").disabled=!ok;$("okb").classList.toggle("hide",!ok);
+}
+const plain=()=>build().replace(/⟦(.*?)⟧/g,"[$1]").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">");
+document.querySelectorAll("#p-docs input,#p-docs select,#p-docs textarea").forEach(e=>e.addEventListener("input",upd));
+$("cp").onclick=async()=>{try{await navigator.clipboard.writeText(plain());$("dmsg").textContent="Текст скопирован."}catch(e){$("dmsg").textContent="Не удалось скопировать. Выделите текст на листе вручную."}};
+$("dl").onclick=async()=>{const b=$("dl");b.classList.add("load");b.disabled=true;
+ try{
+  let done=false;
+  if(typeof claude!=="undefined"&&claude.use){const d=await claude.use("downloads");if(d){await d.save({filename:"dokument.txt",data:plain()});done=true}}
+  if(!done){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([plain()],{type:"text/plain;charset=utf-8"}));a.download="dokument.txt";document.body.appendChild(a);a.click();a.remove()}
+  $("dmsg").textContent="Документ сохранён."
+ }catch(e){$("dmsg").textContent="Не получилось скачать. Используйте «Скопировать текст»."}
+ b.classList.remove("load");b.disabled=false};
+
+// ---- каталог ----
+const CATALOG=[
+{name:"Роспотребнадзор",cat:"Права потребителя",city:"Вся Россия",addr:"Обращение онлайн или в территориальное управление",phone:"8 800 555-49-43",site:"https://zpp.rospotrebnadzor.ru",hours:"Горячая линия, режим уточняйте на сайте",desc:"Принимает жалобы на нарушение прав потребителей, консультирует по возврату товаров и услуг."},
+{name:"Онлайнинспекция.рф (Роструд)",cat:"Трудовые споры",city:"Вся Россия",addr:"Обращение подаётся онлайн",phone:"8 800 707-88-41",site:"https://онлайнинспекция.рф",hours:"Горячая линия по будням, уточняйте на сайте",desc:"Жалобы на невыплату зарплаты, нарушения при оформлении и увольнении."},
+{name:"Суды общей юрисдикции (ГАС «Правосудие»)",cat:"Другое",city:"Вся Россия",addr:"Найти свой суд можно по адресу",phone:"—",site:"https://sudrf.ru",hours:"По графику конкретного суда",desc:"Поиск суда, подача документов и информация о ходе дел."},
+{name:"Госуслуги",cat:"Другое",city:"Вся Россия",addr:"Онлайн-обращения в госорганы",phone:"115",site:"https://www.gosuslugi.ru",hours:"Круглосуточно",desc:"Подача обращений и заявлений в государственные органы без визита."},
+{name:"Федеральная палата адвокатов",cat:"Другое",city:"Вся Россия",addr:"Список адвокатских палат регионов",phone:"—",site:"https://fparf.ru",hours:"—",desc:"Через палаты регионов можно узнать о бесплатной юридической помощи."}
+// пример: {name:"Юридическая клиника",cat:"Права потребителя",city:"Ваш город",addr:"...",phone:"...",site:"https://...",hours:"пн–пт 10:00–17:00",desc:"..."}
+];
+function fillSel(id,first,vals){const s=$(id),cur=s.value;s.innerHTML="";[first,...vals].forEach(v=>s.add(new Option(v,v)));if([...s.options].some(o=>o.value===cur))s.value=cur}
+function renderHelp(){
+ if(!$("hcity").options.length){fillSel("hcity","Все города",[...new Set(CATALOG.map(c=>c.city))]);fillSel("htopic","Все темы",[...new Set(CATALOG.map(c=>c.cat))])}
+ if(helpTopic && [...$("htopic").options].some(o=>o.value===helpTopic)){$("htopic").value=helpTopic;helpTopic=null}
+ const q=$("hq").value.trim().toLowerCase(),C=$("hcity").value,T=$("htopic").value;
+ const L=CATALOG.filter(c=>(T==="Все темы"||c.cat===T)&&(C==="Все города"||c.city===C||c.city==="Вся Россия")&&(!q||(c.name+c.desc).toLowerCase().includes(q)));
+ $("hlist").innerHTML=L.map(c=>`<div class="org"><div class="t"><h3>${c.name}</h3><span class="tag">${c.cat}</span></div><p class="sm">${c.desc}</p>
+ <div class="meta">${c.phone!=="—"?`<a class="tel" href="tel:${c.phone.replace(/[^\d+]/g,"")}">${ico("phone")}${c.phone}</a>`:""}<span>${ico("pin")}${c.addr}</span><span class="mut">${ico("clock")}${c.hours}</span><a href="${c.site}" target="_blank" rel="noopener">${ico("ext")}${c.site.replace("https://","")}</a></div></div>`).join("")||'<div class="org"><p>Ничего не найдено. Измените запрос или сбросьте фильтры.</p></div>';
+}
+$("hq").addEventListener("input",renderHelp);
+$("hcity").addEventListener("change",renderHelp);
+$("htopic").addEventListener("change",()=>{helpTopic=null;renderHelp()});
+hy();upd();route();
+</script>
+</body>
+</html>
